@@ -1,0 +1,20 @@
+CreateDummyVariable <- function(ofVariable, equalsOneIf, equalsZeroIf){
+n <- 1
+dummyVariable <- 0
+for(i in ofVariable){
+  if(is.na(i) == TRUE){
+    dummyVariable[n] = NA
+  }else if(i == equalsOneIf){
+    dummyVariable[n] = 1
+  }else if(i == equalsZeroIf){
+    dummyVariable[n] = 0
+  }
+  n = n + 1
+}
+remove(n, i)
+return(dummyVariable)
+}
+
+# Add the dummy vector to the dataframe.
+df1$genderDummy <- CreateDummyVariable(df1$gender, 'female', 'male')
+remove(genderDummy)
